@@ -21,8 +21,10 @@ const displaycomments = (Comments) => {
           Comment.id
         }')">details</button>
         
+        
  
         `;
+        
     comments_Container.appendChild(div);
   });
 };
@@ -48,5 +50,6 @@ const DisplayDetails = (Comment) => {
           
    
     `;
+    window.scrollTo(0,-100);
   comments_Details.appendChild(div);
 };
