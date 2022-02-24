@@ -17,7 +17,9 @@ const displaycomments = (Comments) => {
         <h3>${Comment.name}</h3>
         <h4>${Comment.email}</h4>
         <p>${Comment.body.slice(0, 100) + "......"}</p>
-        <button href="#comments_Details" onclick="CommentsDetails('${Comment.id}')">details</button>
+        <button href="#comments_Details" onclick="CommentsDetails('${
+          Comment.id
+        }')">details</button>
         
  
         `;
@@ -25,16 +27,17 @@ const displaycomments = (Comments) => {
   });
 };
 const CommentsDetails = (id) => {
-  fetch(`https://jsonplaceholder.typicode.com/comments/${id}`)
+  const url = `https://jsonplaceholder.typicode.com/comments/${id}`;
+  fetch(url)
     .then((res) => res.json())
     .then((data) => DisplayDetails(data));
 };
 const DisplayDetails = (Comment) => {
   const comments_Details = document.getElementById("comments_Details");
-  comments_Details.innerHTML ="";
+  comments_Details.innerHTML = "";
 
   const div = document.createElement("div");
-    // div.classList.add('comments');
+  // div.classList.add('comments');
   div.innerHTML = `
        
       <h1>Id:${Comment.id} </h1>
